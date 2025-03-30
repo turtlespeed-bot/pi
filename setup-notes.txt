@@ -1,0 +1,23 @@
+sudo apt-get update
+sudo apt-get upgrade -y
+# current issue with rasp 5 and apt upgrade getting hung on vnc font
+# work around ssh from another machine or apt remove vnc, both of these solutions cause some apps to not open
+
+#ssh
+sudo systemctl start ssh
+sudo systemctl enable ssh
+sudo systemctl status ssh
+
+sudo apt-get upgrade -y
+sudo apt install curl -y
+curl -fsSL https://ollama.com/install.sh | sh
+ollama run deepseek-r1:1.5b
+ollama run deepseek-r1:7b
+
+# git
+sudo apt-get install gh
+gh auth login
+git config --global user.email "u@me.com"
+git config --global user.name "u"
+
+#visual studio
